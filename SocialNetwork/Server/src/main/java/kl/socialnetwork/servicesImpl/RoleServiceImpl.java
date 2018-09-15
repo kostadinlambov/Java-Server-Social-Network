@@ -1,7 +1,8 @@
-package kl.socialnetwork.services;
+package kl.socialnetwork.servicesImpl;
 
 import kl.socialnetwork.domain.entities.UserRole;
 import kl.socialnetwork.repositories.RoleRepository;
+import kl.socialnetwork.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

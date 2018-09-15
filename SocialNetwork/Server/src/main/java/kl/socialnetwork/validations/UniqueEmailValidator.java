@@ -1,6 +1,7 @@
 package kl.socialnetwork.validations;
 
 
+import kl.socialnetwork.domain.entities.User;
 import kl.socialnetwork.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,9 +26,8 @@ public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail,Str
 
     @Override
     public boolean isValid(String email, ConstraintValidatorContext constraintValidatorContext) {
-//        User user = this.userService.getByEmailValidation(email);
-//        return user == null;
-        return true;
+        User user = this.userService.getByEmailValidation(email);
+        return user == null;
     }
 }
 

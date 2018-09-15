@@ -50,7 +50,7 @@ public class User extends BaseEntity implements UserDetails {
     @Override
     @Column(nullable = false, name = "password")
     public String getPassword() {
-        return null;
+        return this.password;
     }
 
     public void setPassword(String password) {

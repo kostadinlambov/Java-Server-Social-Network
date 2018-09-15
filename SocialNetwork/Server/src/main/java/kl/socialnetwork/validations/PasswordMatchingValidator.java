@@ -1,5 +1,6 @@
 package kl.socialnetwork.validations;
 
+import kl.socialnetwork.domain.modles.bindingModels.user.UserRegisterBindingModel;
 import org.springframework.stereotype.Component;
 
 import javax.validation.ConstraintValidator;
@@ -14,10 +15,10 @@ public class PasswordMatchingValidator implements ConstraintValidator<PasswordMa
 
     @Override
     public boolean isValid(Object o, ConstraintValidatorContext constraintValidatorContext) {
-//        if (o instanceof UserRegisterBindingModel) {
-//            UserRegisterBindingModel user = (UserRegisterBindingModel) o;
-//            return user.getPassword().equals(user.getConfirmPassword());
-//        }
+        if (o instanceof UserRegisterBindingModel) {
+            UserRegisterBindingModel user = (UserRegisterBindingModel) o;
+            return user.getPassword().equals(user.getConfirmPassword());
+        }
         return false;
     }
 }

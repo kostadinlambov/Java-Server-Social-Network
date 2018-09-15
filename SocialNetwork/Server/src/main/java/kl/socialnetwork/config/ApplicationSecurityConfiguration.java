@@ -45,39 +45,22 @@ public class ApplicationSecurityConfiguration
                 .authorizeRequests()
                 .antMatchers(
                         "/users/register",
-                        "/rackets/all",
-                        "/orders/order",
-                        "/orders/all",
-                        "/orders/checkout",
-                        "/orders/remove",
-                        "/orders/edit",
-                        "/rackets/test",
                         "/users/update",
                         "/**"
                         ).permitAll()
                 .antMatchers(
-                        "/rackets/details",
-                        "/rackets/create",
-                        "/rackets/edit",
-                        "/rackets/categories",
                         "/users/all",
                         "/users/promote",
                         "/users/demote",
                         "/users/details",
                         "/users/details/username",
                         "/users/editDetails",
-                        "categories/all",
-                        "categories/allDeleted",
-                        "categories/create",
-                        "categories/edit",
-                        "categories/restore",
-                        "categories/delete",
                         "logs/all",
                         "logs/findByUserName",
                         "logs/clear",
                         "logs/clearByName"
                 ).hasAnyAuthority("ADMIN", "ROOT")
-                .antMatchers(  "/rackets/delete", "/users/delete", "categories/delete").hasAuthority("ROOT")
+                .antMatchers( "/users/delete").hasAuthority("ROOT")
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JwtAuthenticationFilter(authenticationManager(), this.mapper))
